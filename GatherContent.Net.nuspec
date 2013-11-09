@@ -7,13 +7,13 @@
     <owners>Matt Hammond</owners>
     <licenseUrl>https://raw.github.com/softwired/GatherContent.Net/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/softwired/GatherContent.Net</projectUrl>
-    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <iconUrl>https://raw.github.com/softwired/GatherContent.Net/master/gathercontent.net.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net library for accessing the GatherContent API</description>
     <copyright>Copyright 2013 Softwired Limited</copyright>
     <tags>Gather Content GatherContent</tags>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="4.5.9" />
+      <dependency id="Newtonsoft.Json" version="5.0.8" />
       <dependency id="Microsoft.Net.Http" version="2.2.15" />
     </dependencies>
   </metadata>
