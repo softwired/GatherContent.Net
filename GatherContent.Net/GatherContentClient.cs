@@ -14,7 +14,7 @@ namespace GatherContent.Net
         private readonly string _apiKey;
         private readonly string _version;
 
-        public GatherContentClient(string accountName, string apiKey, string version = "0.2.1")
+        public GatherContentClient(string accountName, string apiKey, string version = "0.4")
         {
             _accountName = accountName;
             _apiKey = apiKey;
@@ -32,6 +32,18 @@ namespace GatherContent.Net
             return await PostAsync<ProjectData>("get_projects");
         }
 
+        public PageItem GetPage(string pageID) {
+            return GetPageAsync(pageID).Result;
+        }
+
+        public async Task<PageItem> GetPageAsync(string pageID) {
+            var result = await PostAsync<PageItem>("get_page", new[] { new KeyValuePair<string, string>("id", pageID) });
+            if (result.page != null) {
+                result.page.SetContents();
+            }
+            return result;
+        }
+
         public PageData GetPagesByProject(string projectId)
         {
             return GetPagesByProjectAsync(projectId).Result;
@@ -39,7 +51,13 @@ namespace GatherContent.Net
 
         public async Task<PageData> GetPagesByProjectAsync(string projectId)
         {
-            return await PostAsync<PageData>("get_pages_by_project", new[] { new KeyValuePair<string, string>("id", projectId) });
+            var result = await PostAsync<PageData>("get_pages_by_project", new[] { new KeyValuePair<string, string>("id", projectId) });
+            if (result.pages != null) {
+                foreach (var page in result.pages) {
+                    page.SetContents();
+                }
+            }
+            return result;
         }
 
         public FileData GetFilesByProject(string projectId)
@@ -90,7 +108,6 @@ namespace GatherContent.Net
                 }
             }
         }
-
 
     }
 }

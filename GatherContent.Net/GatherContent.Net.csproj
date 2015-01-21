@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageContentElements.cs" />
+    <Compile Include="PageContent.cs" />
+    <Compile Include="PageItem.cs" />
     <Compile Include="GatherContentClient.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="File.cs" />
