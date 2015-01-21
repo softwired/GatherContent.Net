@@ -11,6 +11,8 @@ Currently you can:
   <dd>Get a list of projects for your API Key</dd>
   <dt>Pages</dt>
   <dd>Get the pages for a given project</dd>
+  <dt>Page</dt>
+  <dd>Get a single page</dd>
   <dt>Files</dt>
   <dd>Get the files for a given project and download them</dd>
 </dl>
